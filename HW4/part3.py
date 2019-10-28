@@ -9,7 +9,4 @@ def has_consecutive(some_string):
             continue
     return False
 
-print(has_consecutive("abcd"))
-print(has_consecutive("abccd"))
-print(has_consecutive("abcccd"))
-print(has_consecutive("abcCcd"))
+

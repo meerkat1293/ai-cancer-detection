@@ -9,7 +9,3 @@ def bitwise_or(string1,string2):
             return_value += '0'
     return return_value
 
-print(bitwise_or("1010","0110"))
-print(bitwise_or("111","001"))
-print(bitwise_or("001","011"))
-print(bitwise_or("1100","001"))

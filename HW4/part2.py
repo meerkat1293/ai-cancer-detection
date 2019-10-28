@@ -1,9 +1,10 @@
 def is_triangle(a,b,c):
-    if a + b > c or a + c > b or b + c > a:
-        return True
-    return False
+    if a + b < c or a + c < b or b + c < a:
+        return False
+    return True
 
-
-print(is_triangle(12,1,1))
-print(is_triangle(6,8,5))
-print(is_triangle(6,8,15))
+def try_triangle():
+    len1 = int(input("Enter first length: "))
+    len2 = int(input("Enter second length: "))
+    len3 = int(input("Enter third length: "))
+    return is_triangle(len1,len2,len3)
