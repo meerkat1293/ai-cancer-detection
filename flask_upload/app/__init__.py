@@ -1,6 +1,6 @@
 from flask import Flask
 
-UPLOAD_FOLDER = 'C:\Users\meerm\OneDrive\Desktop\Uploads'
+UPLOAD_FOLDER = '/home/mmeer/ECS32AHW'
 
 app = Flask(__name__)
 app.secret_key = "secret key"
