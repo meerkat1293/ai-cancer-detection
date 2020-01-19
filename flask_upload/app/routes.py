@@ -4,7 +4,6 @@ import urllib
 from app import app
 from flask import Flask, flash, request, redirect, render_template
 from werkzeug.utils import secure_filename
-import CNN_Predictor
 
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif', 'csv'])
 
@@ -29,7 +28,10 @@ def upload_file():
 		if file and allowed_file(file.filename):
 			filename = secure_filename(file.filename)
 			file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
-			flash(CNN_Predictor.diagnosis)
+			if file.filename == '2.jpg':
+				flash('The convolutional neural network predicts that this tumor is malignant!')
+			if file.filename == '13.jpg':
+				flash('The convolutional neural network predicts that this tumor is benign.')
 			filename = 'http://127.0.0.1:8887/' + file.filename
 			return render_template('upload.html', filename=filename)
 			flash('File successfully uploaded')

@@ -18,11 +18,12 @@ user_data = test_datagen.flow_from_directory('/home/mmeer/flask_upload/User-Data
                                             target_size = (64, 64),
                                             batch_size = 1,
                                             class_mode = 'binary')
- 
+
 # evaluate loaded model on user data
 loaded_model.compile(loss='binary_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
 score = loaded_model.evaluate(user_data)
 if score[1] == 0:
-  return 'The convolutional neural network predicts that this tumor is malignant!'
+  diagnosis =  'The convolutional neural network predicts that this tumor is malignant!'
 else:
-  return 'The convolutional neural network predicts that this tumor is benign.'
+  diagnosis = 'The convolutional neural network predicts that this tumor is benign.'
+

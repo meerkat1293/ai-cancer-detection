@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 
-UPLOAD_FOLDER = '/home/mmeer/flask_upload'
+UPLOAD_FOLDER = '/home/mmeer/flask_upload/User-Data/test'
 
 app = Flask(__name__)
 app.secret_key = "secret key"
