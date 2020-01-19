@@ -4,6 +4,7 @@ import urllib
 from app import app
 from flask import Flask, flash, request, redirect, render_template
 from werkzeug.utils import secure_filename
+from sample_func import sample_func
 
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif', 'csv'])
 
@@ -26,13 +27,20 @@ def upload_file():
 			flash('No file selected for uploading')
 			return redirect(request.url)
 		if file and allowed_file(file.filename):
+			if sample_func(file.filename[-4:]):
+				flash('This is a text file')
 			filename = secure_filename(file.filename)
 			file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
+			filename = 'http://127.0.0.1:8887/' + file.filename
+			return render_template('upload.html', filename=filename)
 			flash('File successfully uploaded')
 			return redirect('/')
 		else:
 			flash('Allowed file types are txt, pdf, png, jpg, jpeg, gif, csv')
 			return redirect(request.url)
+
+
+
 
 if __name__ == "__main__":
     app.run()

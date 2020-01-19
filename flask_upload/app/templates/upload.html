@@ -10,6 +10,10 @@
 		{% endfor %}
 		</ul>
 	  {% endif %}
+	  {% if filename %}
+	  <img src="{{ filename }}">
+	  {% endif %}
+		
 	{% endwith %}
 </p>
 <form method="post" action="/" enctype="multipart/form-data">
