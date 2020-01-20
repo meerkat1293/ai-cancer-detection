@@ -28,10 +28,7 @@ def upload_file():
 		if file and allowed_file(file.filename):
 			filename = secure_filename(file.filename)
 			file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
-			if file.filename == '2.jpg':
-				flash('The convolutional neural network predicts that this tumor is malignant!')
-			if file.filename == '13.jpg':
-				flash('The convolutional neural network predicts that this tumor is benign.')
+			flash(file.filename)
 			filename = 'http://127.0.0.1:8887/' + file.filename
 			return render_template('upload.html', filename=filename)
 			flash('File successfully uploaded')
